@@ -4,9 +4,10 @@
   "description": "Sandro Lain Personal Blog",
   "main": "index.js",
   "scripts": {
-    "dev": "mdx-go ./pages",
-    "build": "mdx-go build ./pages -d ./docs",
-    "serve:build": "serve ./docs"
+    "dev": "mdx-go ./docs",
+    "build": "mdx-go build ./docs -d ./dist",
+    "serve:build": "serve ./dist",
+    "publish": "npm run build && gh-pages -d dist -b master -r https://github.com/sandrolain/sandrolain.github.io.git"
   },
   "keywords": [
     "website",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "eslint": "^7.3.1",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "serve": "^11.3.2"
   }
 }
