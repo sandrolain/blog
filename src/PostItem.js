@@ -25,7 +25,8 @@ const PostItemCnt = styled("div")`
   }
 
   span {
-    font-size: 14px;
+    display: block;
+    line-height: 1.5em;
     color: var(--primary-color-lighter);
   }
 `;

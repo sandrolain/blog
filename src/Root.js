@@ -2,8 +2,8 @@ import React from "react";
 import { ComponentProvider } from "mdx-go";
 import { Global, css } from '@emotion/core';
 import styled from "@emotion/styled";
-import photo from "./photo.jpg";
-import vaporwave from "./vaporwave.jpeg";
+import photo from "./assets/photo.jpg";
+import vaporwave from "./assets/vaporwave.png";
 
 import Highlight from 'react-highlight.js';
 import highlightStyle from './shades-of-purple.css';
@@ -14,6 +14,8 @@ const components = {
     let lang = "javascript";
     if(props.className && props.className.match(/-css/)) {
       lang = "css";
+    } else if(props.className && props.className.match(/-html/)) {
+      lang = "html";
     }
     return <Highlight language={lang}>{props.children}</Highlight>
   }
@@ -61,7 +63,7 @@ const Header = styled("header")`
 `;
 
 const Body = styled("main")`
-  background: #FFFFFF;
+  background: hsl(30deg, 20%, 95%);
   color: var(--not-black-color);
   padding: 3em;
   border-radius: 6px;
@@ -103,11 +105,13 @@ export const Root = (props) => (
       :root {
         --sans-serif-font: 'Oswald', sans-serif;
         --serif-font: 'Playfair Display', serif;
+        --primary-color-blacky: hsl(240, 100%, 5%);
         --primary-color-verydark: hsl(240, 100%, 10%);
         --primary-color-verydark-50: hsl(240, 100%, 10%, 0.3);
         --primary-color-dark: hsl(220, 80%, 20%);
         --primary-color-light: hsl(240, 50%, 40%);
         --primary-color-lighter: hsl(220, 60%, 60%);
+        --primary-color-sowhite: hsl(220, 60%, 80%);
         --not-black-color: hsl(220, 40%, 10%);
       }
 
@@ -126,12 +130,12 @@ export const Root = (props) => (
           background: #000000;
           background-image:
             url(${vaporwave}),
-            linear-gradient(180deg, var(--primary-color-dark), var(--primary-color-verydark));
+            linear-gradient(180deg, var(--primary-color-blacky), var(--primary-color-verydark));
           background-size: 100% auto, 100% 100vh;
           background-position: 50% 100%;
           background-attachment: fixed;
           background-blend-mode: screen;
-          background-repeat: repeat-x, repeat;
+          background-repeat: repeat-x, no-repeat;
         }
         a {
           color: #002266;
@@ -155,10 +159,21 @@ export const Root = (props) => (
           line-height: 1em;
         }
 
+        b, strong {
+          color: var(--primary-color-dark);
+        }
+
+        p code {
+          background-color: var(--primary-color-verydark);
+          color: var(--primary-color-sowhite);
+          padding: 0.1em 0.4em;
+          border-radius: 4px;
+        }
+
         .hljs {
           padding: 1.6em;
           margin: 2em -1.6em;
-          border-radius: 3px;
+          border-radius: 4px;
           font-size: 16px;
           line-height: 1.6em;
           background-color: var(--primary-color-verydark);

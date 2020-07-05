@@ -1,6 +1,11 @@
 import React from "react";
+import { Head } from 'mdx-go'
 import styled from "@emotion/styled";
-import signatureImg from "./3ad39970a957a5f28905d8030813c3fb.png"
+import signatureImg from "./assets/3ad39970a957a5f28905d8030813c3fb.png"
+import appleTouchIcon from "./assets/apple-touch-icon.png";
+import favicon from "./assets/favicon.ico";
+// favicon: https://favicon.io/favicon-generator/ - Timmana, 110
+
 
 const HeadPhotoCnt = styled("div")`
   position: relative;
@@ -49,3 +54,16 @@ export const HeadPhoto = (props) => (
 export const Signature = () => <div style={{textAlign: "left"}}><img src={signatureImg} style={{
   height: "32px"
 }} /></div>;
+
+
+export const HeadBlock = (attrs) => {
+  return <>
+    <Head>
+      <title>{attrs.headTitle || attrs.title}</title>
+      <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+      <link rel="icon" type="image/png" href={favicon} />
+    </Head>
+    <HeadPhoto src={attrs.src} alt={attrs.alt}>{attrs.author}</HeadPhoto>
+    <h1>{attrs.title}</h1>
+  </>;
+}
