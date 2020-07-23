@@ -20,7 +20,8 @@
     "@emotion/styled": "^10.0.27",
     "highlight.js": "^10.1.1",
     "mdx-go": "^2.0.0-32",
-    "react-highlight.js": "^1.0.7"
+    "react-highlight.js": "^1.0.7",
+    "react-share": "^4.2.1"
   },
   "devDependencies": {
     "eslint": "^7.3.1",

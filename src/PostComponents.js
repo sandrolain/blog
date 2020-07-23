@@ -9,7 +9,7 @@ import favicon from "./assets/favicon.ico";
 
 const HeadPhotoCnt = styled("div")`
   position: relative;
-  margin: -3em -3em 0;
+  margin: calc(var(--body-padding) * -1) calc(var(--body-padding) * -1) 0;
 
   img {
     width: 100%;

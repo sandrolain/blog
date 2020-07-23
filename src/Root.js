@@ -8,6 +8,19 @@ import vaporwave from "./assets/vaporwave.png";
 import Highlight from 'react-highlight.js';
 import highlightStyle from './shades-of-purple.css';
 
+import {
+  EmailShareButton,
+  LinkedinShareButton,
+  RedditShareButton,
+  FacebookShareButton,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookIcon,
+  RedditIcon,
+  LinkedinIcon,
+  EmailIcon
+} from "react-share";
+
 const components = {
   h1: (props) => <h1>{props.children}</h1>,
   code: (props) => {
@@ -24,6 +37,12 @@ const components = {
 const Container = styled("div")`
   max-width: 768px;
   margin: 0 auto;
+
+  @media (max-width: 768px) {
+    & {
+      margin: 0 1em;
+    }
+  }
 `;
 
 const Header = styled("header")`
@@ -65,9 +84,22 @@ const Header = styled("header")`
 const Body = styled("main")`
   background: hsl(30deg, 20%, 95%);
   color: var(--not-black-color);
-  padding: 3em;
+  padding: var(--body-padding);
   border-radius: 6px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+
+  #share {
+    margin-top: 3em;
+    border-top: 1px solid var(--primary-color-purple);
+
+    h4 {
+      margin-bottom: 0.5em;
+    }
+
+    button {
+      margin-right: 0.25em;
+    }
+  }
 `;
 
 const Footer = styled("footer")`
@@ -79,6 +111,17 @@ const Footer = styled("footer")`
   color: #FFFFFF;
   display: flex;
   border-radius: 6px;
+
+  @media (max-width: 768px) {
+    & {
+      padding: 1em;
+      flex-direction: column;
+    }
+
+    & div:last-child {
+      margin-top: 1em;
+    }
+  }
 
   div {
     flex: 1;
@@ -112,7 +155,21 @@ export const Root = (props) => (
         --primary-color-light: hsl(240, 50%, 40%);
         --primary-color-lighter: hsl(220, 60%, 60%);
         --primary-color-sowhite: hsl(220, 60%, 80%);
+        --primary-color-purple: hsl(292deg, 67%, 49%);
         --not-black-color: hsl(220, 40%, 10%);
+        --body-padding: 3em;
+      }
+
+      @media (min-width: 421px) and (max-width: 768px) {
+        :root {
+          --body-padding: 2em;
+        }
+      }
+
+      @media (max-width: 420px) {
+        :root {
+          --body-padding: 1em;
+        }
       }
 
         html, body {
@@ -159,6 +216,24 @@ export const Root = (props) => (
           line-height: 1em;
         }
 
+        h3 {
+          font-family: var(--sans-serif-font);
+          color: var(--primary-color-dark);
+          font-weight: 400;
+          font-size: 1.25em;
+          margin-top: 1.2em;
+          line-height: 1em;
+        }
+
+        h4 {
+          font-family: var(--sans-serif-font);
+          color: var(--primary-color-dark);
+          font-weight: 400;
+          font-size: 1em;
+          margin-top: 1.2em;
+          line-height: 1em;
+        }
+
         b, strong {
           color: var(--primary-color-dark);
         }
@@ -171,8 +246,8 @@ export const Root = (props) => (
         }
 
         .hljs {
-          padding: 1.6em;
-          margin: 2em -1.6em;
+          padding: calc(var(--body-padding) * 0.618);
+          margin: 2em calc(var(--body-padding) * -0.618);
           border-radius: 4px;
           font-size: 16px;
           line-height: 1.6em;
@@ -186,6 +261,24 @@ export const Root = (props) => (
         <a href="/">Sandro Lain <em>Personal Blog</em></a></Header>
       <Body>
         {props.children}
+        <div id="share">
+          <h4>Share this page</h4>
+          <EmailShareButton url={props.location.href}>
+            <EmailIcon size={32} round={true} />
+          </EmailShareButton>
+          <LinkedinShareButton url={props.location.href}>
+            <LinkedinIcon size={32} round={true} />
+          </LinkedinShareButton>
+          <RedditShareButton url={props.location.href}>
+            <RedditIcon size={32} round={true} />
+          </RedditShareButton>
+          <FacebookShareButton url={props.location.href}>
+            <FacebookIcon size={32} round={true} />
+          </FacebookShareButton>
+          <TwitterShareButton url={props.location.href}>
+            <TwitterIcon size={32} round={true} />
+          </TwitterShareButton>
+        </div>
       </Body>
       <Footer>
         <div>
