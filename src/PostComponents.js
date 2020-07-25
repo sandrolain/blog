@@ -1,5 +1,6 @@
-import React from "react";
-import { Head } from 'mdx-go'
+import React, { Component } from "react";
+import { Head, Link } from 'mdx-go'
+import { Global, css } from '@emotion/core';
 import styled from "@emotion/styled";
 import signatureImg from "./assets/3ad39970a957a5f28905d8030813c3fb.png"
 import appleTouchIcon from "./assets/apple-touch-icon.png";
@@ -67,3 +68,139 @@ export const HeadBlock = (attrs) => {
     <h1>{attrs.title}</h1>
   </>;
 }
+
+export class ReposList extends Component {
+  constructor() {
+    super();
+    this.state = {
+      repos: []
+    };
+  }
+
+  componentDidMount() {
+    fetch("https://api.github.com/users/sandrolain/repos")
+      .then(res => res.json())
+      .then((repos) => {
+        const res = repos.map((repo) => ({
+          id: repo.id,
+          name: repo.name,
+          url: repo.html_url,
+          description: repo.description,
+          updated_at: repo.updated_at,
+          language: repo.language
+        }));
+        res.sort((a, b) => (new Date(b.updated_at) - new Date(a.updated_at)))
+        return res;
+      })
+      .then(repos => this.setState({ repos }));
+  }
+
+  render() {
+    return (<>
+      <Global styles={css`
+        #repos-list {
+          margin: 0 -1.6em 1em;
+          padding: 1em 1.6em;
+          line-height: 1em;
+          border-top: 1px solid var(--secondary-color);
+
+          h3 {
+            color: var(--secondary-color-dark);
+          }
+          ul, li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+          }
+          ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -1.6em 1em;
+          }
+          li {
+            width: 50%;
+          }
+          @media (max-width: 768px) {
+            & li {
+              width: 100%;
+            }
+          }
+          a {
+            display: block;
+            text-decoration: none;
+            border-top: 1px solid hsl(220, 80%, 20%, 0.1);
+            padding: 1em 1.6em;
+            border-radius: 4px;
+            font-size: 0.8em;
+
+            &:hover {
+              background: hsl(220, 80%, 20%, 0.05);
+            }
+          }
+          h4 {
+            margin: 0;
+          }
+          p {
+            margin: 0;
+            font-size: 0.9em;
+            color: var(--primary-color-light);
+          }
+        }
+      `} />
+
+      <div id="repos-list">
+        <h3>My GitHub Repos</h3>
+        <ul>
+          {this.state.repos.map(el => (
+            <li key={el.id}><a href={el.url}>
+              <h4>{el.description}</h4>
+              <p>{el.language}</p>
+            </a></li>
+          ))}
+        </ul>
+      </div>
+    </>);
+  }
+}
+
+
+const PostItemCnt = styled("div")`
+  margin: 0 -1.6em 1em;
+  line-height: 1em;
+
+  a {
+    display: block;
+    text-decoration: none;
+    border-bottom: 1px solid hsl(220, 80%, 20%, 0.1);
+    padding: 1em 1.6em;
+    border-radius: 4px;
+
+    &:hover {
+      background: hsl(220, 80%, 20%, 0.05);
+    }
+  }
+  &:last-child a {
+    border-bottom: none;
+  }
+  h2 {
+    font-weight: 200;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1em;
+  }
+
+  span {
+    display: block;
+    line-height: 1.5em;
+    color: var(--primary-color-lighter);
+  }
+`;
+
+export const PostItem = (props) => (
+  <PostItemCnt>
+    <Link href={props.href}>
+      <h2>{props.children}</h2>
+      <span>{props.date}</span>
+    </Link>
+  </PostItemCnt>
+);

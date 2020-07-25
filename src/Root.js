@@ -1,5 +1,5 @@
 import React from "react";
-import { ComponentProvider } from "mdx-go";
+import { ComponentProvider, Link } from "mdx-go";
 import { Global, css } from '@emotion/core';
 import styled from "@emotion/styled";
 import photo from "./assets/photo.jpg";
@@ -31,7 +31,8 @@ const components = {
       lang = "html";
     }
     return <Highlight language={lang}>{props.children}</Highlight>
-  }
+  },
+  a: Link
 };
 
 const Container = styled("div")`
@@ -90,7 +91,7 @@ const Body = styled("main")`
 
   #share {
     margin-top: 3em;
-    border-top: 1px solid var(--primary-color-purple);
+    border-top: 1px solid var(--secondary-color);
 
     h4 {
       margin-bottom: 0.5em;
@@ -155,7 +156,8 @@ export const Root = (props) => (
         --primary-color-light: hsl(240, 50%, 40%);
         --primary-color-lighter: hsl(220, 60%, 60%);
         --primary-color-sowhite: hsl(220, 60%, 80%);
-        --primary-color-purple: hsl(292deg, 67%, 49%);
+        --secondary-color: hsl(292deg, 67%, 49%);
+        --secondary-color-dark: hsl(292deg, 67%, 25%);
         --not-black-color: hsl(220, 40%, 10%);
         --body-padding: 3em;
       }
@@ -288,6 +290,15 @@ export const Root = (props) => (
           Made with <a href="https://jxnblk.github.io/mdx-go/">mdx-go</a>
         </div>
       </Footer>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-522672-3"></script>
+      <script>{`
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){ dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-522672-3');
+      `}</script>
+
     </Container>
   </ComponentProvider>
 );
