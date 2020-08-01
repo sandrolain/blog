@@ -5,7 +5,10 @@ module.exports = {
         test: /\.(png|jpe?g|gif|ico|css)$/i,
         use: [
           {
-            loader: "file-loader"
+            loader: "file-loader",
+            options: {
+              name: "[name].[ext]",
+            }
           }
         ]
       },

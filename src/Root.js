@@ -1,9 +1,12 @@
 import React from "react";
-import { ComponentProvider, Link } from "mdx-go";
+import { ComponentProvider, Link, Head } from "mdx-go";
 import { Global, css } from '@emotion/core';
 import styled from "@emotion/styled";
 import photo from "./assets/photo.jpg";
 import vaporwave from "./assets/vaporwave.png";
+import appleTouchIcon from "./assets/apple-touch-icon.png";
+import favicon from "./assets/favicon.ico";
+// favicon: https://favicon.io/favicon-generator/ - Timmana, 110
 
 import Highlight from 'react-highlight.js';
 import highlightStyle from './shades-of-purple.css';
@@ -139,7 +142,28 @@ const Footer = styled("footer")`
   }
 `;
 
-export const Root = (props) => (
+export const Root = (props) => {
+  let routeInfo = {};
+  props.routes.forEach((route) => {
+    if(props.location.pathname === route.path) {
+      routeInfo = route;
+    }
+  });
+
+  return(
+  <>
+  <Head>
+      <title>{routeInfo.headTitle || routeInfo.title}</title>
+      <meta name="description" content={routeInfo.description} />
+      <meta property="og:type" content="article" />
+      <meta property="og:title" content={routeInfo.title} />
+      <meta property="og:description" content={routeInfo.description} />
+      <meta property="og:image" content={routeInfo.image} />
+      <link rel="apple-touch-icon" sizes="180x180" href={appleTouchIcon} />
+      <link rel="icon" type="image/png" href={favicon} />
+    <meta property="og:url" content={props.location.href} />
+    <link rel="canonical" href={props.location.href} />
+  </Head>
   <ComponentProvider components={components}>
     <Global
       styles={css`
@@ -290,15 +314,15 @@ export const Root = (props) => (
           Made with <a href="https://jxnblk.github.io/mdx-go/">mdx-go</a>
         </div>
       </Footer>
-      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-522672-3"></script>
-      <script>{`
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){ dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'UA-522672-3');
-      `}</script>
-
     </Container>
   </ComponentProvider>
-);
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-522672-3"></script>
+  <script dangerouslySetInnerHTML={{__html: `
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments);}
+    gtag("js", new Date());
+    gtag("config", "UA-522672-3");
+  `}}></script>
+  </>
+)
+};

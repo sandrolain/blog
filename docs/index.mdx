@@ -3,15 +3,18 @@ import { Root } from "../src/Root";
 import { HeadBlock, PostItem, ReposList } from "../src/PostComponents";
 import image from "./assets/markus-spiske-iar-afB0QQw-unsplash.jpg";
 
-export { Root };
-export const title = "Latest Posts";
+export { Root, image };
+export const headTitle = "Sandro Lain";
+export const title = "Sandro Lain - Latest Posts";
+export const description = "Sandro Lain Personal Blog - Web Development and Design";
 
-<HeadBlock headTitle="Sandro Lain" title={title} src={image} author={
+<HeadBlock headTitle="Sandro Lain" title="Latest Posts" description="Sandro Lain Personal Blog - Web Development and Design"
+  src={image} author={
   <span>Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/matrix?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
 } />
 
 <div>
-  <PostItem href="/003-team-development-ux" date="11 July, 2020">
+  <PostItem href="/003-team-development-ux" date="1 August, 2020">
     UX in team development
   </PostItem>
 
