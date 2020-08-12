@@ -154,6 +154,7 @@ export const Root = (props) => {
   <>
   <Head>
       <title>{routeInfo.headTitle || routeInfo.title}</title>
+      <base href="/" />
       <meta name="description" content={routeInfo.description} />
       <meta property="og:type" content="article" />
       <meta property="og:title" content={routeInfo.title} />
