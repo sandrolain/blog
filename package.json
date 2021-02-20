@@ -4,8 +4,8 @@
   "description": "Sandro Lain Personal Blog",
   "main": "index.js",
   "scripts": {
-    "dev": "mdx-go ./docs",
-    "build": "mdx-go build ./docs -d ./dist",
+    "dev": "npx mdx-go ./docs",
+    "build": "npx mdx-go build ./docs -d ./dist",
     "serve:build": "serve ./dist",
     "publish": "npm run build && gh-pages -d dist -b master -r https://github.com/sandrolain/sandrolain.github.io.git"
   },
@@ -18,14 +18,14 @@
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
-    "highlight.js": "^10.1.1",
+    "highlight.js": "^10.6.0",
     "mdx-go": "^2.0.0-32",
     "react-highlight.js": "^1.0.7",
-    "react-share": "^4.2.1"
+    "react-share": "^4.3.1"
   },
   "devDependencies": {
-    "eslint": "^7.3.1",
-    "file-loader": "^6.0.0",
+    "eslint": "^7.20.0",
+    "file-loader": "^6.2.0",
     "gh-pages": "^3.1.0",
     "serve": "^11.3.2"
   }
