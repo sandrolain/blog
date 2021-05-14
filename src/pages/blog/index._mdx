@@ -1,7 +1,6 @@
-import { ComponentProvider } from 'mdx-go'
-import { Root } from "../src/Root";
+
 import { HeadBlock, PostItem, ReposList } from "../src/PostComponents";
-import image from "./assets/markus-spiske-iar-afB0QQw-unsplash.jpg";
+
 
 export { Root, image };
 export const headTitle = "Sandro Lain";

@@ -1,19 +1,14 @@
-import { Head } from 'mdx-go'
-import { HeadPhoto, Signature } from "../src/PostComponents.js";
-import image from "./assets/drew-beamer-3SIXZisims4-unsplash.jpg";
+import BlogPost from "../../components/BlogPost"
+import image from "./images/drew-beamer-3SIXZisims4-unsplash.jpg";
+export const meta = {
+  title: "Welcome to my Personal Blog",
+  description: "",
+  date: "2020-06-27T18:00:00Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@drew_beamer?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank">Drew Beamer</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></>
+}
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-export const title = "Welcome to my Personal Blog";
-
-<Head>
-  <title>{title}</title>
-</Head>
-
-<HeadPhoto src={image}>
-  <span>Photo by <a href="https://unsplash.com/@drew_beamer?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText" target="_blank">Drew Beamer</a> on <a href="https://unsplash.com/" target="_blank">Unsplash</a></span>
-</HeadPhoto>
-
-
-# Welcome to my Personal Blog
 
 My name is Sandro, I have been a web developer for more than 10 years, with diversified experience in the creation of web apps.  
 I live and work in the province of Padua (Italy), with my wife Luisa, my daughter Matilde and her future sister (-4 months at birth - 27/06/2020).

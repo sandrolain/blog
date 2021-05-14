@@ -1,14 +1,15 @@
-import { HeadBlock } from "../src/PostComponents.js";
-import image from "./assets/kevin-horvat-Pyjp2zmxuLk-unsplash.jpg";
-import example from "./002-example.html";
+import Link from "next/link";
+import BlogPost from "../../components/BlogPost"
+import image from "./images/kevin-horvat-Pyjp2zmxuLk-unsplash.jpg";
+export const meta = {
+  title: "A simple fetch() interceptor with VanillaJS",
+  description: "Control over the requests and their responses",
+  date: "2020-07-11T18:00:00Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@hidd3n?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kevin Horvat</a> on <a href="https://unsplash.com/s/photos/monitors?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></>
+}
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-export { image };
-export const title = "A simple fetch() interceptor with VanillaJS";
-export const description = "Control over the requests and their responses";
-
-<HeadBlock title={title} src={image} author={
-  <span>Photo by <a href="https://unsplash.com/@hidd3n?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kevin Horvat</a> on <a href="https://unsplash.com/s/photos/monitors?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-}></HeadBlock>
 
 The introduction of the **Fetch API** brought a modern and comprehensive method of making HTTP calls to browsers.
 
@@ -129,7 +130,7 @@ interceptedFetch(`https://.../my-endpoint`, {
 
 ```
 
-<a href={example}>View Live Example</a>
+<Link href="./002-example.html"><a>View Live Example</a></Link>
 
 
 In my **HTNA-tools** repository on github you can find the original **TypeScript** version:

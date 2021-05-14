@@ -1,19 +1,16 @@
-import { Head } from 'mdx-go'
-import { HeadPhoto } from "../src/PostComponents.js";
-import image from "./assets/pankaj-patel-6JVlSdgMacE-unsplash.jpg";
-import example from "./001-example.html";
+import Link from "next/link";
+import BlogPost from "../../components/BlogPost"
+import image from "./images/pankaj-patel-6JVlSdgMacE-unsplash.jpg";
+export const meta = {
+  title: "CSS variable as a responsive selector",
+  description: "",
+  date: "2020-07-05T18:00:00Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@pankajpatel?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Pankaj Patel</a> on <a href="https://unsplash.com/s/photos/css?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></>
+}
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-export { image };
-export const title = "CSS variable as a responsive selector";
-export const description = "";
 
-<Head>
-  <title>{title}</title>
-</Head>
-
-<HeadPhoto src={image}>
-  <span>Photo by <a href="https://unsplash.com/@pankajpatel?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Pankaj Patel</a> on <a href="https://unsplash.com/s/photos/css?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-</HeadPhoto>
 
 # CSS variable as a responsive selector
 
@@ -96,4 +93,4 @@ Example HTML source:
   ">Hello! Resize the viewport to switch between styles</div>
 ```
 
-<a href={example}>Live Example</a>
+<Link href="./001-example.html"><a>Live Example</a></Link>

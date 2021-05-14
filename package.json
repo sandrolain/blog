@@ -1,32 +1,41 @@
 {
-  "name": "sandro-lain-blog",
+  "name": "sandro-lain",
   "version": "1.0.0",
-  "description": "Sandro Lain Personal Blog",
+  "description": "Personal Blog",
   "main": "index.js",
   "scripts": {
-    "dev": "npx mdx-go ./docs",
-    "build": "npx mdx-go build ./docs -d ./dist",
-    "serve:build": "serve ./dist",
-    "publish": "npm run build && gh-pages -d dist -b master -r https://github.com/sandrolain/sandrolain.github.io.git"
+    "dev": "next dev",
+    "build": "next build && next export",
+    "start": "next start"
   },
-  "keywords": [
-    "website",
-    "blog"
-  ],
   "author": "Sandro Lain",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
-    "@emotion/core": "^10.1.1",
-    "@emotion/styled": "^10.0.27",
-    "highlight.js": "^10.7.2",
-    "mdx-go": "^2.0.0-32.0",
+    "@mdx-js/loader": "^1.6.22",
+    "@next/mdx": "^10.2.0",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^8.0.0",
+    "next": "^10.2.0",
+    "next-compose-plugins": "^2.2.1",
+    "next-optimized-images": "^2.6.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-highlight.js": "^1.0.7",
-    "react-share": "^4.4.0"
+    "react-share": "^4.4.0",
+    "rehype-highlight": "^4.1.0",
+    "remark-emoji": "^2.2.0",
+    "remark-images": "^2.0.0",
+    "rss": "^1.2.2",
+    "typescript": "^4.2.4",
+    "url-loader": "^4.1.1"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
-    "file-loader": "^6.2.0",
-    "gh-pages": "^3.1.0",
-    "serve": "^11.3.2"
+    "@types/next": "^9.0.0",
+    "@types/node": "^14.14.45",
+    "@types/react": "^17.0.5",
+    "@types/webpack-env": "^1.16.0",
+    "slugify": "^1.5.3",
+    "xml-js": "^1.6.11"
   }
 }

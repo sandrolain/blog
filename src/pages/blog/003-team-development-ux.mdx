@@ -1,14 +1,14 @@
-import { HeadBlock } from "../src/PostComponents.js";
-import image from "./assets/alvaro-reyes-qWwpHwip31M-unsplash.jpg";
+import BlogPost from "../../components/BlogPost"
+import image from "./images/alvaro-reyes-qWwpHwip31M-unsplash.jpg";
+export const meta = {
+  title: "UX in team development",
+  description: "Well-designed UX as the first analysis and debug tool",
+  date: "2020-08-01T18:00:00Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@alvarordesign?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alvaro Reyes</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></>
+}
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
-export { image }
-export const title = "UX in team development";
-export const description = "Well-designed UX as the first analysis and debug tool";
-
-<HeadBlock title={title}
-  src={image} author={
-  <span>Photo by <a href="https://unsplash.com/@alvarordesign?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Alvaro Reyes</a> on <a href="https://unsplash.com/?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></span>
-}></HeadBlock>
 
 Often, working in a team, happens to get our hands on a code written by other developers,
 present or past, and therefore on the functionality that the code implements.

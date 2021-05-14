@@ -1,14 +1,13 @@
-import { HeadBlock } from "../src/PostComponents";
-import image from "./assets/ferenc-almasi-fhAfLtHToCs-unsplash.jpg";
-import example from "./002-example.html";
-
-export { image };
-export const title = "Micro-Frontends Resources";
-export const description = "Articles, Books, Tools about the Micro-Frontends artitecture";
-
-<HeadBlock title={title} src={image} author={
-  <span>Photo by <a href="https://unsplash.com/@flowforfrank?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ferenc Almasi</a> on <a href="https://unsplash.com/s/photos/frontend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></span>
-}></HeadBlock>
+import BlogPost from "../../components/BlogPost"
+import image from "./images/alvaro-reyes-qWwpHwip31M-unsplash.jpg";
+export const meta = {
+  title: "Micro-Frontends Resources",
+  description: "Articles, Books, Tools about the Micro-Frontends artitecture",
+  date: "2021-05-08T13:13:20Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@flowforfrank?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ferenc Almasi</a> on <a href="https://unsplash.com/s/photos/frontend?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></>
+}
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
 
 I have been following the world of micro-frontends for some time, partly because it is the latest fashion, partly because it is the expression of the micro-services brought to the frontend.
 
