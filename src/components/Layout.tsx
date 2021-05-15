@@ -18,18 +18,20 @@ import {
 
 
 export default function Layout({ children, pageTitle, description, url }) {
+  const shareUrl = `https://www.sandrolain.com${url}`;
   return (
     <>
       <Head>
         <title key="title">{pageTitle}</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta key="description" name="description" content={description}></meta>
-        <meta property="og:url" content={url} />
+        <meta property="og:url" content={shareUrl} />
         <meta property="og:type" content="article" />
         <meta key="ogtitle" property="og:title" content={pageTitle} />
         <meta key="ogdescription" property="og:description" content={description} />
         <meta key="ogimage" property="og:image" content={vaporwave} />
+        <link href={shareUrl} rel="canonical" />
         <link rel="shortcut icon" href={favicon} />
       </Head>
       <style dangerouslySetInnerHTML={{__html: /*css*/`
@@ -260,19 +262,19 @@ export default function Layout({ children, pageTitle, description, url }) {
           {children}
           <div id="share">
             <h4>Share this page</h4>
-            <EmailShareButton url={url}>
+            <EmailShareButton url={shareUrl}>
               <EmailIcon size={32} round={true} />
             </EmailShareButton>
-            <LinkedinShareButton url={url}>
+            <LinkedinShareButton url={shareUrl}>
               <LinkedinIcon size={32} round={true} />
             </LinkedinShareButton>
-            <RedditShareButton url={url}>
+            <RedditShareButton url={shareUrl}>
               <RedditIcon size={32} round={true} />
             </RedditShareButton>
-            <FacebookShareButton url={url}>
+            <FacebookShareButton url={shareUrl}>
               <FacebookIcon size={32} round={true} />
             </FacebookShareButton>
-            <TwitterShareButton url={url}>
+            <TwitterShareButton url={shareUrl}>
               <TwitterIcon size={32} round={true} />
             </TwitterShareButton>
           </div>
