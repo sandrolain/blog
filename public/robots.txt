@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.sandrolain.com
-
-# Sitemaps
-Sitemap: https://www.sandrolain.com/sitemap.xml

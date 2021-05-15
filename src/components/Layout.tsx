@@ -19,6 +19,7 @@ import {
 
 export default function Layout({ children, pageTitle, description, url }) {
   const shareUrl = `https://www.sandrolain.com${url}`;
+  const defaultOgImage = `https://www.sandrolain.com${vaporwave}`;
   return (
     <>
       <Head>
@@ -30,7 +31,7 @@ export default function Layout({ children, pageTitle, description, url }) {
         <meta property="og:type" content="article" />
         <meta key="ogtitle" property="og:title" content={pageTitle} />
         <meta key="ogdescription" property="og:description" content={description} />
-        <meta key="ogimage" property="og:image" content={vaporwave} />
+        <meta key="ogimage" property="og:image" content={defaultOgImage} />
         <link href={shareUrl} rel="canonical" />
         <link rel="shortcut icon" href={favicon} />
       </Head>
