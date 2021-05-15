@@ -279,10 +279,10 @@ export default function Layout({ children, pageTitle, description, url }) {
         </main>
         <footer id="foot">
           <div>
-            me @ <a href="https://github.com/sandrolain">github</a> - <a href="http://it.linkedin.com/in/sandrolain">linkedin</a> - <a href="http://twitter.com/elettryxande/">twitter</a>
+            me @ <a href="https://github.com/sandrolain">github</a> - <a href="http://it.linkedin.com/in/sandrolain">linkedin</a> - <a href="http://twitter.com/sandro_lain/">twitter</a>
           </div>
           <div>
-            Made with <a href="https://nextjs.org/">Next.js</a>
+            Made with <a href="https://nextjs.org/">Next.js</a> on <a href="https://www.netlify.com/">Netlify</a>
           </div>
         </footer>
       </div>

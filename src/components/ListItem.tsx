@@ -6,7 +6,7 @@ export const ListItem = ({ post }) => {
     <>
     <style jsx>{/*css*/`
       .item {
-        margin: 0 -1.6em 1em;
+        margin: 0 -1.6em;
         line-height: 1em;
       }
       a {

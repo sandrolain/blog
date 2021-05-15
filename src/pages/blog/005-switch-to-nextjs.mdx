@@ -1,0 +1,26 @@
+import BlogPost from "../../components/BlogPost";
+import image from "./images/sarah-kilian-52jRtc2S_VE-unsplash.jpg";
+export const meta = {
+  title: "Switching from mdx-go to next.js",
+  description: "Little drama for my little blog",
+  date: "2021-05-15T11:14:04Z",
+  image,
+  imageAttribute: <>Photo by <a href="https://unsplash.com/@rojekilian?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Sarah Kilian</a> on <a href="https://unsplash.com/s/photos/broken?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></>
+};
+export default ({ children }) => <BlogPost meta={meta}>{children}</BlogPost>;
+
+When I decided to start writing this blog, I wanted to write it using **[MDX](https://mdxjs.com/)** as the post format because I am a fan of Markdown (certainly less laborious than writing HTML directly) and because it would allow me to add dynamic elements written in react.js.
+
+To quickly set up the blog I looked around what were the (not many) platforms ready to create static sites using MDX.
+Among all the possible ones I found **[mdx-go](https://jxnblk.github.io/mdx-go/)**, a semi-ready solution for writing sites using MDX.
+
+It was easy to set up the first version of the site and with minimal effort, I had everything I needed.
+Over time, however, I noticed that not everything was perfect: the resolution of the paths not always correct, the impossibility of making a dynamic listing, in addition to the fact that the framework seems not to be updated for a while.
+
+Recently GitHub via **dependabot** intervened with a security update PR on a dependency, which *"broke"* mdx-go. The pages were available but the site appeared without style and basic structure.
+
+Thanks to the experience gained with my other blog ([Arché](https://arche.sandrolain.com/)), I decided to migrate to **[next.js](https://nextjs.org/)**, which has official plugins for MDX.
+In just over an hour I was able to convert from the old to the new framework, and now I can also take advantage of the next.js integration on [Netlify](https://www.netlify.com/), where this site is hosted.
+
+**Lesson learned**: Sometimes it is better to do a little more work and use a better known and supported platform than to have things ready and then find yourself limited or with many problems. 
+

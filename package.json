@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "next build && next export && next-sitemap",
+    "postbuild": "next-sitemap",
     "start": "next start"
   },
   "author": "Sandro Lain",
@@ -35,6 +36,7 @@
     "@types/node": "^14.14.45",
     "@types/react": "^17.0.5",
     "@types/webpack-env": "^1.16.0",
+    "next-sitemap": "^1.6.57",
     "slugify": "^1.5.3",
     "xml-js": "^1.6.11"
   }
