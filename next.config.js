@@ -6,7 +6,7 @@ const optimizedImages = require("next-optimized-images");
 const withMDX         = require("@next/mdx")({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [images, emoji],
+    remarkPlugins: [images, [emoji, { emoticon: true }]],
     rehypePlugins: [highlight]
   }
 });
