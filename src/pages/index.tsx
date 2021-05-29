@@ -3,7 +3,7 @@ import { HeadBlock } from "../components/HeadBlock";
 import { ListItem } from "../components/ListItem";
 import { posts } from "../getAllPosts";
 import { useRouter } from "next/router";
-import image from "./blog/images/markus-spiske-iar-afB0QQw-unsplash.jpg";
+import image from "./blog/images/jan-kim-gblpm9PBrO4-unsplash.jpg";
 
 export default function IndexPage() {
   const router = useRouter();
@@ -58,7 +58,7 @@ export default function IndexPage() {
         title="Latest Posts"
         description="Sandro Lain Personal Blog - Web Development and Design"
         image={image}
-        imageAttribute={<>Photo by <a href="https://unsplash.com/@markusspiske?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Markus Spiske</a> on <a href="https://unsplash.com/s/photos/matrix?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></>}
+        imageAttribute={<>Photo by <a href="https://unsplash.com/@jan_culturelab?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Jan KIM</a> on <a href="https://unsplash.com/s/photos/neon?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></>}
       />
       {pages.length > 1 ?
       <div className="pagination">
