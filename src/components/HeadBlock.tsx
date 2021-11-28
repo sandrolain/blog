@@ -9,7 +9,7 @@ export const HeadBlock = (props) => {
 
       #head-photo img {
         width: 100%;
-        height: 240px;
+        height: 320px;
         object-fit: cover;
         vertical-align: top;
         background: #000000;
