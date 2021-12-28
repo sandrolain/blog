@@ -46,7 +46,7 @@ export const HeadBlock = (props) => {
 
     `}</style>
     <div id="head-photo">
-      <img src={props.image} alt={props.alt} />
+      <img src={props.image.src} alt={props.alt} />
       {props.imageAttribute && <div id="head-photo-attribute">{props.imageAttribute}</div>}
       {props.children && <div>{props.children}</div>}
     </div>

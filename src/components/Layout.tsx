@@ -33,7 +33,7 @@ export default function Layout({ children, pageTitle, description, url }) {
         <meta key="ogdescription" property="og:description" content={description} />
         <meta key="ogimage" property="og:image" content={defaultOgImage} />
         <link href={shareUrl} rel="canonical" />
-        <link rel="shortcut icon" href={favicon} />
+        <link rel="shortcut icon" href={favicon.src} />
       </Head>
       <style dangerouslySetInnerHTML={{__html: /*css*/`
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap');
@@ -256,7 +256,7 @@ export default function Layout({ children, pageTitle, description, url }) {
       `}}></style>
       <div id="root">
         <div id="head">
-          <img src={photo} />
+          <img src={photo.src} />
           <a href="/">Sandro Lain <em>Personal Blog</em></a>
         </div>
         <main id="body">
