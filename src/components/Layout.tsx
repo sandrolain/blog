@@ -290,7 +290,7 @@ export default function Layout({ children, pageTitle, description, url }) {
         </footer>
       </div>
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-522672-3"></script>
-      <script dangerouslySetInnerHTML={{__html: `
+      <script dangerouslySetInnerHTML={{__html: /*javascript*/`
         window.dataLayer = window.dataLayer || [];
         function gtag(){ dataLayer.push(arguments);}
         gtag("js", new Date());
