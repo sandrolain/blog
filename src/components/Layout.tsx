@@ -19,7 +19,7 @@ import {
 
 export default function Layout({ children, pageTitle, description, url }) {
   const shareUrl = `https://www.sandrolain.com${url}`;
-  const defaultOgImage = `https://www.sandrolain.com${vaporwave}`;
+  const defaultOgImage = `https://www.sandrolain.com${vaporwave.src}`;
   return (
     <>
       <Head>
@@ -80,7 +80,7 @@ export default function Layout({ children, pageTitle, description, url }) {
           min-height: 100%;
           background: #000000;
           background-image:
-            url(${vaporwave}),
+            url(${vaporwave.src}),
             linear-gradient(180deg, var(--primary-color-blacky), var(--primary-color-verydark));
           background-size: 100% auto, 100% 100vh;
           background-position: 50% 100%;
